@@ -10,6 +10,8 @@ $(document).ready(function() {
 });
 
 function _z_rta_ComposeViewLink(myAddrs) {
+	$("#zRtaReply").remove();
+
 	var myAddrsLink = '$($("#toCP").find("textarea")[1]).val("' + myAddrs + '");';
 
 	$(".ComposeHeader").append("<p id='zRtaReply'><a onclick='" + myAddrsLink + "'><strong>Reply</strong> to Forwarded Attachment</a></p>");
@@ -18,6 +20,8 @@ function _z_rta_ComposeViewLink(myAddrs) {
 }
 
 function _z_rta_ComposeRAViewLink(myAddrs) {
+	$("#zRtaReplyAll").remove();
+
 	var myAddrsLink = '$($("#toCP").find("textarea")[1]).val("' + myAddrs + '");';
 
 	$(".ComposeHeader").append("<p id='zRtaReplyAll'><a onclick='" + myAddrsLink + "'><strong>Reply All</strong> to Forwarded Attachment</a></p>");
