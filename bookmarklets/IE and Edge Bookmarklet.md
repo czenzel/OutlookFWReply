@@ -29,7 +29,7 @@ javascript:(function(){var myHead = document.getElementsByTagName('head')[0]; va
 
 If you are planning to test a drag and drop of the bookmarklet please try this included hyperlink. This might not work in all browsers especially in Internet Explorer Edge, as of Build 10130.
 
-[Reply to Outlook.com Attachment](javascript:%28function%28%29%7Bvar+myHead+%3D+document.getElementsByTagName%28'head'%29%5B0%5D%3B+var+myScript+%3D+document.createElement%28'script'%29%3B+myScript.type+%3D+'application%2Fjavascript'%3B+myScript.src+%3D+'https%3A%2F%2Fczenzel.github.io%2FOutlookFWReply%2Fscripts%2Fofr-bookmark.js'%3B+myHead.appendChild%28myScript%29%3B%7D%29%28%29%3B)
+<a href="javascript:(function(){var myHead = document.getElementsByTagName('head')[0]; var myScript = document.createElement('script'); myScript.type = 'application/javascript'; myScript.src = 'https://czenzel.github.io/OutlookFWReply/scripts/ofr-bookmark.js'; myHead.appendChild(myScript);})();">Reply to Outlook.com Attachment</a>
 
 ## Important Information
 
