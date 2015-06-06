@@ -8,6 +8,8 @@ This plugin was made possible by:
 
 * Christopher Zenzel, AA, IST
 
+Please visit me on Twitter (@czenzel) or Facebook. Need some help for your Information Tech project? Let me know on Linked-In at [http://linkedin.com/in/chriszenzel](http://linkedin.com/in/chriszenzel).
+
 ## License and Copyright
 
 Copyright 2015 (c) Christopher Zenzel, AA, IST
