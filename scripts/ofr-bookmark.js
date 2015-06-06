@@ -10,6 +10,8 @@ $(document).ready(function() {
 });
 
 function _z_rta_ComposeViewLink(myAddrs) {
+	$("#zRtaReply").remove();
+
 	var myAddrsLink = '$($("#toCP").find("textarea")[1]).val("' + myAddrs + '");';
 
 	$(".ComposeHeader").append("<p id='zRtaReply'><a onclick='" + myAddrsLink + "'><strong>Reply</strong> to Forwarded Attachment</a></p>");
@@ -18,6 +20,8 @@ function _z_rta_ComposeViewLink(myAddrs) {
 }
 
 function _z_rta_ComposeRAViewLink(myAddrs) {
+	$("#zRtaReplyAll").remove();
+
 	var myAddrsLink = '$($("#toCP").find("textarea")[1]).val("' + myAddrs + '");';
 
 	$(".ComposeHeader").append("<p id='zRtaReplyAll'><a onclick='" + myAddrsLink + "'><strong>Reply All</strong> to Forwarded Attachment</a></p>");
@@ -72,8 +76,6 @@ function _z_rta_waitForMessageView(selector, time) {
         if(document.querySelector(selector) != null) {
 		var flagBind = false;
 		$("#ComposeRteEditor_surface").contents().find("body").bind('DOMSubtreeModified', function() {
-			$("#zRtaReply").remove();
-			$("#zRtaReplyAll").remove();
 			var contents = $($("#ComposeRteEditor_surface").contents().find("body")).html();
 			_z_rta_ReplyToAttachment(contents);
 			_z_rta_ReplyAllToAttachment(contents);
@@ -81,8 +83,6 @@ function _z_rta_waitForMessageView(selector, time) {
 			flagBind = true;
 		});
 		if (!flagBind) {
-			$("#zRtaReply").remove();
-			$("#zRtaReplyAll").remove();
 			$("#ComposeRteEditor_surface").contents().find("body").unbind('DOMSubtreeModified');
 			var contents = $($("#ComposeRteEditor_surface").contents().find("body")).html();
 			_z_rta_ReplyToAttachment(contents);
