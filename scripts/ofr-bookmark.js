@@ -72,6 +72,8 @@ function _z_rta_waitForMessageView(selector, time) {
         if(document.querySelector(selector) != null) {
 		var flagBind = false;
 		$("#ComposeRteEditor_surface").contents().find("body").bind('DOMSubtreeModified', function() {
+			$("#zRtaReply").remove();
+			$("#zRtaReplyAll").remove();
 			var contents = $($("#ComposeRteEditor_surface").contents().find("body")).html();
 			_z_rta_ReplyToAttachment(contents);
 			_z_rta_ReplyAllToAttachment(contents);
