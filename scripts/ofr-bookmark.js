@@ -79,6 +79,7 @@ function _z_rta_waitForMessageView(selector, time) {
 			flagBind = true;
 		});
 		if (!flagBind) {
+			$("#ComposeRteEditor_surface").contents().find("body").unbind('DOMSubtreeModified');
 			var contents = $($("#ComposeRteEditor_surface").contents().find("body")).html();
 			_z_rta_ReplyToAttachment(contents);
 			_z_rta_ReplyAllToAttachment(contents);
