@@ -79,6 +79,8 @@ function _z_rta_waitForMessageView(selector, time) {
 			flagBind = true;
 		});
 		if (!flagBind) {
+			$("#zRtaReply").remove();
+			$("#zRtaReplyAll").remove();
 			$("#ComposeRteEditor_surface").contents().find("body").unbind('DOMSubtreeModified');
 			var contents = $($("#ComposeRteEditor_surface").contents().find("body")).html();
 			_z_rta_ReplyToAttachment(contents);
