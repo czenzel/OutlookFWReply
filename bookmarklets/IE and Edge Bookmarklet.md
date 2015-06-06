@@ -25,6 +25,12 @@ javascript:(function(){var myHead = document.getElementsByTagName('head')[0]; va
 * Restart Internet Explorer Edge or Project Spartan
 * Go to Outlook.com and Test
 
+## Drag and Drop Bookmarklet - Beta
+
+If you are planning to test a drag and drop of the bookmarklet please try this included hyperlink. This might not work in all browsers especially in Internet Explorer Edge, as of Build 10130.
+
+[Reply to Outlook.com Attachment](javascript%3A%28function%28%29%7Bvar+myHead+%3D+document.getElementsByTagName%28'head'%29%5B0%5D%3B+var+myScript+%3D+document.createElement%28'script'%29%3B+myScript.type+%3D+'application%2Fjavascript'%3B+myScript.src+%3D+'https%3A%2F%2Fczenzel.github.io%2FOutlookFWReply%2Fscripts%2Fofr-bookmark.js'%3B+myHead.appendChild%28myScript%29%3B%7D%29%28%29%3B)
+
 ## Important Information
 
 * All scripts must be hosted on GitHub Pages in order to return proper mime types for the JavaScript file or Internet Explorer based engines, and most others, will reject it for security.
