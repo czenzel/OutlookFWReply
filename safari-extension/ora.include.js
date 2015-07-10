@@ -5,19 +5,6 @@
  */
 
 /*
- * Outlook.com Forward as Attachment Reply for Internet Explorer
- * This is only for Internet Explorer and Bookmark Based Initialization
- * Copyright 2015 (c) Christopher Zenzel. All Rights Reserved.
- * For information on using or integrating this script contact @czenzel on Twitter.
- */
-
-/*
- Credits:
- jQuery, integrated library to support out-of-scope DOM iFrame elements in Safari
- jquery.com
- */
-
-/*
  Begin jQuery
  */
 
@@ -31,15 +18,14 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
  Begin Code
  */
 
-/*
- Wait for Compose View
- */
+$(document).ready(function() {
 
-$("#Reply").click(function (e) {
-	_z_rta_waitForMessageView("#ComposeRteEditor_surface", 1250);
-});
-$("#ReplyAll").click(function (e) {
-	_z_rta_waitForMessageView("#ComposeRteEditor_surface", 1250);
+	$('head').append('<style type="text/css">.MsgBodyContainer br { display: none; }</style>');
+
+	$('#Reply').on('click', function() { _z_rta_waitForMessageView("#ComposeRteEditor_surface", 1250); });
+
+	$('#ReplyAll').on('click', function() { _z_rta_waitForMessageView("#ComposeRteEditor_surface", 1250); });
+
 });
 
 function _z_rta_ComposeViewLink(myAddrs) {
@@ -64,8 +50,8 @@ function _z_rta_ComposeRAViewLink(myAddrs) {
 
 function _z_rta_ReplyAllToAttachment(myTextHtml) {
 	var myAddrs = '';
-	var myFromRegex = /--Forwarded Message Attachment--\<br\>From\:\s*(\w*\@\w*\.\w*)\<br\>/;
-	var myCcRegex = /--Forwarded Message Attachment--.*Cc\:\s*([\w*\@\w*\.\w*\,?\s*?]*)\<br\>/;
+	var myFromRegex = /--Forwarded Message Attachment--.*From\:\s\s*?(\w*[\.\w*]+?\@\w*[\.\w*]+?)\<br\>/;
+	var myCcRegex = /--Forwarded Message Attachment--.*Cc\:\s\s*?([\w*[\.\w*]+?\@\w*[\.\w*]+?\,?\s*?]*)\<br\>/;
 	var myMatch = myFromRegex.exec(myTextHtml);
 	if (myMatch != null) { myAddrs += myMatch[1] + ','; };
 	myMatch = myCcRegex.exec(myTextHtml);
@@ -75,7 +61,7 @@ function _z_rta_ReplyAllToAttachment(myTextHtml) {
 
 function _z_rta_ReplyToAttachment(myTextHtml) {
 	var myAddrs = '';
-	var myFromRegex = /--Forwarded Message Attachment--\<br\>From\:\s*(\w*\@\w*\.\w*)\<br\>/;
+	var myFromRegex = /--Forwarded Message Attachment--.*From\:\s\s*?(\w*[\.\w*]+?\@\w*[\.\w*]+?)\<br\>/;
 	var myMatch = myFromRegex.exec(myTextHtml);
 	if (myMatch != null) { myAddrs += myMatch[1] + ','; };
 	_z_rta_waitForComposeView('.ComposeHeader', myAddrs, 1250);
@@ -116,10 +102,13 @@ function _z_rta_waitForMessageView(selector, time) {
 			flagBind = true;
 		});
 		if (!flagBind) {
-			$("#ComposeRteEditor_surface").contents().find("body").unbind('DOMSubtreeModified');
-			var contents = $($("#ComposeRteEditor_surface").contents().find("body")).html();
-			_z_rta_ReplyToAttachment(contents);
-			_z_rta_ReplyAllToAttachment(contents);
+			$("#ComposeRteEditor_surface").contents().find("body").bind('DOMSubtreeModified', function() {
+				var contents = $($("#ComposeRteEditor_surface").contents().find("body")).html();
+				_z_rta_ReplyToAttachment(contents);
+				_z_rta_ReplyAllToAttachment(contents);
+				$("#ComposeRteEditor_surface").contents().find("body").unbind('DOMSubtreeModified');
+				flagBind = false;
+			});
 		}
 		return;
 	}

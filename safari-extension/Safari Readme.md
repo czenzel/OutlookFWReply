@@ -10,6 +10,10 @@
 
 To build the extension please use the Developer Tools in Safari and refer to information within the Safari Development Center about signing this extension for your use.
 
+## Keep Updated
+
+Keep Updated on our Main GitHub Page located at https://github.com/czenzel/OutlookFWReply
+
 ## Have fun!
 
 You can always reach me on Twitter (@czenzel)! Follow me or hire me for your projects!
