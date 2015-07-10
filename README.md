@@ -14,7 +14,13 @@ Please visit me on Twitter (@czenzel) or Facebook. Need some help for your Infor
 
 Copyright 2015 (c) Christopher Zenzel, AA, IST
 
-This plugin is currently open source, but you may only use it for personal, non-commerical use. If you want to integrate or use this plugin for other reasons please let me know via Twitter or Facebook. You may modify the source of this plugin or extension, but I ask that you share the source code back to my GitHub source through the Wiki, Issues, or Branching.
+License as of 2015-07-31 Monthly Release:
+
+You agree that this license can change depending on certain factors. We ask that you always credit the orginal author if you do re-use or re-mix this code. Please report any changes you make or issues to our Issue Tracker. You must tell us of any changes you make so we can monitor them and that the license is fairly being used.
+
+Attribution-NonCommercial-ShareAlike 4.0 International
+
+http://creativecommons.org/licenses/by-nc-sa/4.0/
 
 ## Disclaimer
 
